@@ -1,4 +1,3 @@
-import java.util.ArrayDeque;
 import java.util.ArrayList;
 
 /**
@@ -15,19 +14,26 @@ import java.util.ArrayList;
 public class AddressBook {
     private BuddyInfo buddy;
     private ArrayList<BuddyInfo> buddies;
-
-    public void addBuddy(BuddyInfo buddy){
-        buddies.add(buddy);
+    public AddressBook(){
+        buddies = new ArrayList<>();
     }
 
-    public void removeBuddy(BuddyInfo buddy){
-        buddies.remove(buddy);
+    public void addBuddy(BuddyInfo buddy){
+        if(buddy != null){
+            buddies.add(buddy);
+        }
+    }
+
+    public void removeBuddy(int index){
+        if(index >= 0 && index < buddies.size()){
+            buddies.remove(buddy);
+        }
     }
 
     public static void main(String[] args) {
         BuddyInfo buddy = new BuddyInfo("Tom","Carleton","613");
         AddressBook addressBook = new AddressBook();
         addressBook.addBuddy(buddy);
-        addressBook.removeBuddy(buddy);
+        addressBook.removeBuddy(0);
     }
 }
